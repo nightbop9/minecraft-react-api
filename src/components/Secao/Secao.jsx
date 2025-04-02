@@ -4,30 +4,37 @@ import './Secao.css';
 export default function Secao() {
 
     const [data, setData] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         async function carregarItens() {
             const response = await fetch('https://minecraft-api.vercel.app/api/items');
             setData(await response.json())
         }
         carregarItens();
-    },[])
-   
+    }, [])
+
     return (
         <section>
             <h1>Itens</h1>
             <div className="itens">
+                
                 {data.map((item, i) => {
+                    return (
                     <div key={i} className='item'>
                         <h3>{item.name}</h3>
                         <img src={item.image} alt={item.image} />
+                        <p>{item.description}</p>
+                        <p>Id no jogo: {item.namespaceId}</p>
                         <div className='item-details'>
-                            <span><strong>Máximo</strong>: {item.stack}</span>
-                            <span><strong>Renovável</strong>: {item.renewable}</span>
+                            <span><strong>Máximo</strong>: {item.stackSize}</span>
+                            
+                            <span><strong>Renovável</strong>: {item.renewable ? <span>Sim</span> : <span>Não</span>}</span>
                         </div>
+                        <p><strong>Id no jogo</strong>: {item.namespacedId}</p>
                     </div>
+                    );
                 })}
-                
-                
+
+
                 {/* <div className='item'>
                     <h3>Graveto</h3>
                     <img src="https://minecraft-api.vercel.app/images/items/stick.png" alt="Graveto" />
@@ -127,7 +134,7 @@ export default function Secao() {
                         <span><strong>Renewable</strong>: No</span>
                     </div>
                 </div> */}
-                
+
             </div>
         </section>
     );
