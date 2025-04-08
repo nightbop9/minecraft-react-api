@@ -19,6 +19,10 @@ section {
     border-radius: 3px;
     width: 30%;
     text-align: center;
+    backdrop-filter: blur(10px);
+}
+.item:hover {
+    transition: 0.5s;
 }
 
 .item .item-details {

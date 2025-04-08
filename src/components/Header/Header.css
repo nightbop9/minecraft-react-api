@@ -5,6 +5,7 @@ header {
     flex-direction: column;
     margin-top: 2%;
     row-gap: 30px;
+    color: black;
 }
 
 .logo {

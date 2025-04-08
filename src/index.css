@@ -11,7 +11,12 @@
 
 body {
   font-family: 'Mine', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-image: url('src/images/minimalistic-1920x1080-minecraft-minecraft-maker-wallpaper-preview.jpg');
+  background-attachment: fixed;  /* Isso fixa o background */
+  background-repeat: no-repeat;  /* Evita repetição da imagem */
+  background-size: cover;        /* Cobre toda a área */
+  background-position: center;
+  /* background-color: #f5f5f5; */
+  color: white;
   padding: 0 10%;
 }

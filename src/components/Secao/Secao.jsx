@@ -3,10 +3,14 @@ import './Secao.css';
 
 export default function Secao() {
 
+    //o useState é um hook do react que serve para criar variáveis de estado
     const [data, setData] = useState([]);
+    // o useEffect é um hook do react que serve para executar uma função quando o componente é montado
     useEffect(() => {
+        // a função carregarItens é uma função assíncrona que busca os itens da API
         async function carregarItens() {
             const response = await fetch('https://minecraft-api.vercel.app/api/items');
+            // setando o estado data com os itens da API
             setData(await response.json())
         }
         carregarItens();
@@ -17,16 +21,18 @@ export default function Secao() {
             <h1>Itens</h1>
             <div className="itens">
                 
-                {data.map((item, i) => {
+                {data.map((item, i) => { // item é o objeto e i é o índice
                     return (
-                    <div key={i} className='item'>
+                        // o key é necessário para o react identificar cada item
+                    <div key={i} className='item'> 
+                        {/* preenchendo os dados do item */}
                         <h3>{item.name}</h3>
                         <img src={item.image} alt={item.image} />
                         <p>{item.description}</p>
                         <p>Id no jogo: {item.namespaceId}</p>
+                        {/* // preenchendo os detalhes do item */}
                         <div className='item-details'>
                             <span><strong>Máximo</strong>: {item.stackSize}</span>
-                            
                             <span><strong>Renovável</strong>: {item.renewable ? <span>Sim</span> : <span>Não</span>}</span>
                         </div>
                         <p><strong>Id no jogo</strong>: {item.namespacedId}</p>
@@ -34,6 +40,8 @@ export default function Secao() {
                     );
                 })}
 
+
+                {/* //dados mocados */}
 
                 {/* <div className='item'>
                     <h3>Graveto</h3>
