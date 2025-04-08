@@ -24,10 +24,17 @@ Este projeto é uma aplicação web desenvolvida em React que consome a Minecraf
 
 Este projeto consome dados da [Minecraft API](https://minecraft-api.vercel.app/), que fornece informações detalhadas sobre itens do jogo Minecraft.
 
-### Endpoints Disponíveis:
+### URL Base :
 
-- `/api/items` - Lista todos os itens disponíveis
-- `/api/items/{id}` - Informações detalhadas de um item específico
+- `https://minecraft-api.vercel.app/`
+
+### Rota Disponível: 
+
+- `api/items`
+
+### Endpoint Disponível:
+
+- `https://minecraft-api.vercel.app/api/items` - Lista todos os itens disponíveis
 
 ### Estrutura de Dados:
 
